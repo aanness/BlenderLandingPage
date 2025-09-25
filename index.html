@@ -1,0 +1,279 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>tailwind.config = {
+  "theme": {
+    "extend": {
+      "colors": {
+        "vitamix-dark": "#333f48",
+        "vitamix-red": "#c8102e",
+        "vitamix-cream": "#faf8f5",
+        "vitamix-gray": "#e5e7eb",
+        "vitamix-text": "#58595b"
+      },
+      "fontFamily": {
+        "serif": [
+          "Lora",
+          "serif"
+        ],
+        "sans": [
+          "Roboto",
+          "sans-serif"
+        ]
+      }
+    }
+  }
+};</script></head>
+<body class="bg-vitamix-cream text-vitamix-text font-custom">
+
+    <div id="page-container" class="w-full">
+        <!-- Header -->
+        <header id="header" class="bg-vitamix-dark text-white sticky top-0 z-50">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center">
+                     <svg class="h-8 w-auto mr-6" viewBox="0 0 100 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="20" font-family="Lora, serif" font-size="24" font-weight="bold" fill="white">Vitamix</text>
+                    </svg>
+                    <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wider uppercase">
+                        <span class="hover:text-vitamix-red transition-colors duration-300 cursor-pointer">Recipes</span>
+                        <span class="text-vitamix-red font-bold cursor-pointer">Upload Recipe</span>
+                        <span class="hover:text-vitamix-red transition-colors duration-300 cursor-pointer">Top Rated</span>
+                        <span class="hover:text-vitamix-red transition-colors duration-300 cursor-pointer">Shop Blenders</span>
+                        <span class="hover:text-vitamix-red transition-colors duration-300 cursor-pointer">Support</span>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button><i class="fa-solid fa-search fa-lg"></i></button>
+                    <button><i class="fa-regular fa-user fa-lg"></i></button>
+                    <button><i class="fa-solid fa-shopping-cart fa-lg"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Recipe Upload Section -->
+            <section id="recipe-upload" class="bg-white py-20 px-6">
+                <div class="container mx-auto max-w-4xl">
+                    <div class="text-center mb-12">
+                        <h1 class="font-serif text-4xl md:text-5xl font-bold text-vitamix-dark">Share Your Creation</h1>
+                        <p class="mt-4 text-lg text-vitamix-text">Inspire the Vitamix community with your favorite recipe.</p>
+                    </div>
+
+                    <form id="upload-form" class="space-y-8">
+                        <div>
+                            <label for="recipe-title" class="block text-sm font-bold text-vitamix-dark mb-2">Recipe Title</label>
+                            <input type="text" id="recipe-title" placeholder="e.g., Creamy Tomato Basil Soup" class="w-full p-4 border border-vitamix-gray rounded-md focus:ring-2 focus:ring-vitamix-red focus:border-transparent transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-vitamix-dark mb-2">Recipe Image</label>
+                            <div class="mt-2 flex justify-center px-6 pt-10 pb-12 border-2 border-vitamix-gray border-dashed rounded-md">
+                                <div class="space-y-1 text-center">
+                                    <i class="fa-solid fa-image fa-3x text-gray-400"></i>
+                                    <div class="flex text-sm text-gray-600">
+                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-vitamix-red hover:text-red-700 focus-within:outline-none">
+                                            <span>Upload a file</span>
+                                            <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <label for="ingredients" class="block text-sm font-bold text-vitamix-dark mb-2">Ingredients</label>
+                                <textarea id="ingredients" rows="8" placeholder="List each ingredient on a new line..." class="w-full p-4 border border-vitamix-gray rounded-md focus:ring-2 focus:ring-vitamix-red focus:border-transparent transition"></textarea>
+                            </div>
+                            <div>
+                                <label for="instructions" class="block text-sm font-bold text-vitamix-dark mb-2">Instructions</label>
+                                <textarea id="instructions" rows="8" placeholder="Step-by-step instructions..." class="w-full p-4 border border-vitamix-gray rounded-md focus:ring-2 focus:ring-vitamix-red focus:border-transparent transition"></textarea>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="blender-used" class="block text-sm font-bold text-vitamix-dark mb-2">Which Vitamix Blender Did You Use?</label>
+                            <select id="blender-used" class="w-full p-4 border border-vitamix-gray rounded-md bg-white focus:ring-2 focus:ring-vitamix-red focus:border-transparent transition">
+                                <option>Select a blender...</option>
+                                <option>Ascent Series A3500</option>
+                                <option>Explorian Series E310</option>
+                                <option>Vitamix 5200</option>
+                                <option>Immersion Blender</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                             <label class="block text-sm font-bold text-vitamix-dark mb-2">Your Rating</label>
+                             <div class="flex items-center space-x-1 text-gray-300">
+                                <i class="fa-solid fa-star fa-2x cursor-pointer hover:text-yellow-400 transition-colors"></i>
+                                <i class="fa-solid fa-star fa-2x cursor-pointer hover:text-yellow-400 transition-colors"></i>
+                                <i class="fa-solid fa-star fa-2x cursor-pointer hover:text-yellow-400 transition-colors"></i>
+                                <i class="fa-solid fa-star fa-2x cursor-pointer hover:text-yellow-400 transition-colors"></i>
+                                <i class="fa-solid fa-star fa-2x cursor-pointer hover:text-yellow-400 transition-colors"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="comments" class="block text-sm font-bold text-vitamix-dark mb-2">Comments or Tips</label>
+                            <textarea id="comments" rows="4" placeholder="Any special tips or variations?" class="w-full p-4 border border-vitamix-gray rounded-md focus:ring-2 focus:ring-vitamix-red focus:border-transparent transition"></textarea>
+                        </div>
+                        
+                        <div class="text-center pt-6">
+                            <button type="submit" class="bg-vitamix-red text-white font-bold uppercase tracking-wider py-4 px-12 rounded-md hover:bg-red-700 transition-colors duration-300">Submit Recipe</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Popular Blenders Section -->
+            <section id="popular-blenders" class="py-20 px-6 bg-vitamix-cream">
+                <div class="container mx-auto">
+                    <div class="text-center mb-12">
+                        <p class="text-sm uppercase tracking-widest text-vitamix-red font-semibold">Community Favorites</p>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-vitamix-dark mt-2">Popular Blenders</h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-vitamix-text">The top-rated machines behind your favorite user-submitted recipes.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div id="blender-card-1" class="text-center group">
+                            <div class="bg-white p-6 rounded-lg overflow-hidden">
+                                <img class="h-64 w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5e2386dd4d-728dbc1ab543980219d0.png" alt="Vitamix Ascent Series A3500 blender on a clean kitchen counter, studio lighting, product shot">
+                            </div>
+                            <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-6">Ascent® Series A3500</h3>
+                            <p class="text-vitamix-text mt-1">Premium Performance + Modern Design</p>
+                            <p class="text-sm text-gray-500 mt-2">Starting at $649.95</p>
+                            <span class="inline-block mt-4 py-2 px-6 border border-vitamix-dark text-vitamix-dark font-bold hover:bg-vitamix-dark hover:text-white transition-colors duration-300 cursor-pointer">Shop Now</span>
+                        </div>
+                        <div id="blender-card-2" class="text-center group">
+                            <div class="bg-white p-6 rounded-lg overflow-hidden">
+                                <img class="h-64 w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/daf2681d4c-2b292b3149486c9199a3.png" alt="Vitamix Explorian Series E310 blender on a white background with fruits, product photography">
+                            </div>
+                            <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-6">Explorian® Series E310</h3>
+                            <p class="text-vitamix-text mt-1">Iconic Power + Simple Controls</p>
+                            <p class="text-sm text-gray-500 mt-2">Starting at $349.95</p>
+                            <span class="inline-block mt-4 py-2 px-6 border border-vitamix-dark text-vitamix-dark font-bold hover:bg-vitamix-dark hover:text-white transition-colors duration-300 cursor-pointer">Shop Now</span>
+                        </div>
+                        <div id="blender-card-3" class="text-center group">
+                            <div class="bg-white p-6 rounded-lg overflow-hidden">
+                                <img class="h-64 w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/eb445a5d0a-c73b345e71d29973749b.png" alt="Vitamix 5200 blender classic model on a minimalist kitchen setup, soft light">
+                            </div>
+                            <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-6">Vitamix 5200</h3>
+                            <p class="text-vitamix-text mt-1">The High-Performance Classic</p>
+                            <p class="text-sm text-gray-500 mt-2">Starting at $449.95</p>
+                            <span class="inline-block mt-4 py-2 px-6 border border-vitamix-dark text-vitamix-dark font-bold hover:bg-vitamix-dark hover:text-white transition-colors duration-300 cursor-pointer">Shop Now</span>
+                        </div>
+                        <div id="blender-card-4" class="text-center group">
+                            <div class="bg-white p-6 rounded-lg overflow-hidden">
+                                <img class="h-64 w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f04076b3b9-3c96122c609c07a24cd8.png" alt="Vitamix Immersion Blender in action in a pot of soup, action shot, kitchen environment">
+                            </div>
+                            <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-6">Immersion Blender</h3>
+                            <p class="text-vitamix-text mt-1">Vitamix Power In Your Hand</p>
+                            <p class="text-sm text-gray-500 mt-2">Starting at $149.95</p>
+                            <span class="inline-block mt-4 py-2 px-6 border border-vitamix-dark text-vitamix-dark font-bold hover:bg-vitamix-dark hover:text-white transition-colors duration-300 cursor-pointer">Shop Now</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Why Buy Vitamix Section -->
+            <section id="why-vitamix" class="py-20 px-6 bg-white">
+                 <div class="container mx-auto">
+                     <div class="text-center mb-12">
+                        <p class="text-sm uppercase tracking-widest text-vitamix-red font-semibold">BUILT TO LAST, AND BACKED BY YOU</p>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-vitamix-dark mt-2">Why Buy on Vitamix.com?</h2>
+                    </div>
+                    <div class="max-w-5xl mx-auto border border-vitamix-gray">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                             <div id="benefit-1" class="text-center p-8 border-b md:border-b-0 md:border-r border-vitamix-gray">
+                                <i class="fa-solid fa-shield-halved fa-3x text-vitamix-dark"></i>
+                                <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-4">10-Year Warranty</h3>
+                                <p class="text-vitamix-text mt-2 text-sm">Full coverage on all new machines, parts, labor, and shipping.</p>
+                            </div>
+                             <div id="benefit-2" class="text-center p-8 border-b md:border-b-0 lg:border-r border-vitamix-gray">
+                                <i class="fa-solid fa-headset fa-3x text-vitamix-dark"></i>
+                                <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-4">Leading Support</h3>
+                                <p class="text-vitamix-text mt-2 text-sm">Our Ohio-based team is ready to help you with any question.</p>
+                            </div>
+                            <div id="benefit-3" class="text-center p-8 border-b md:border-b-0 md:border-r border-vitamix-gray">
+                                <i class="fa-solid fa-truck-fast fa-3x text-vitamix-dark"></i>
+                                <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-4">Free Shipping</h3>
+                                <p class="text-vitamix-text mt-2 text-sm">Enjoy free shipping on all machines, and on repairs both ways.</p>
+                            </div>
+                            <div id="benefit-4" class="text-center p-8">
+                                <i class="fa-solid fa-screwdriver-wrench fa-3x text-vitamix-dark"></i>
+                                <h3 class="font-serif text-xl font-semibold text-vitamix-dark mt-4">Minimal Repairs</h3>
+                                <p class="text-vitamix-text mt-2 text-sm">Fewer than 1% of Vitamix products in the U.S. require service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer id="footer" class="bg-gray-100 text-vitamix-text pt-16 pb-8 px-6">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                    <div class="col-span-2 md:col-span-1">
+                        <h4 class="font-bold text-vitamix-dark mb-4">Corporate Info</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><span class="hover:underline cursor-pointer">About Us</span></li>
+                            <li><span class="hover:underline cursor-pointer">Vitamix Foundation</span></li>
+                            <li><span class="hover:underline cursor-pointer">Careers</span></li>
+                            <li><span class="hover:underline cursor-pointer">Media Center</span></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h4 class="font-bold text-vitamix-dark mb-4">Customer Service</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><span class="hover:underline cursor-pointer">Order Status</span></li>
+                            <li><span class="hover:underline cursor-pointer">Contact</span></li>
+                            <li><span class="hover:underline cursor-pointer">Product Registration</span></li>
+                            <li><span class="hover:underline cursor-pointer">Shipping &amp; Returns</span></li>
+                            <li><span class="hover:underline cursor-pointer">Service Center</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-vitamix-dark mb-4">My Account</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><span class="hover:underline cursor-pointer">Affiliates</span></li>
+                            <li><span class="hover:underline cursor-pointer">Recycling</span></li>
+                            <li><span class="hover:underline cursor-pointer">Legal Notice</span></li>
+                            <li><span class="hover:underline cursor-pointer">Privacy</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2">
+                        <h4 class="font-bold text-vitamix-dark mb-4">Sign up &amp; get $50 off + free shipping*</h4>
+                         <form class="space-y-3">
+                             <input type="email" placeholder="Email address" class="w-full p-3 border border-gray-300 rounded-md text-sm">
+                             <input type="tel" placeholder="Mobile (optional)" class="w-full p-3 border border-gray-300 rounded-md text-sm">
+                             <button class="w-full bg-vitamix-dark text-white py-3 rounded-md font-bold hover:bg-gray-700 transition-colors">Sign Up</button>
+                         </form>
+                         <p class="text-xs text-gray-500 mt-3">*On orders $500 or more. Some exclusions apply. Click to view our privacy policy and terms.</p>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm">
+                    <p class="text-gray-500 mb-4 md:mb-0">© 2025 Vita-Mix Corporation</p>
+                    <div class="flex items-center space-x-4">
+                        <p>Follow Us</p>
+                        <span class="text-gray-500 hover:text-vitamix-dark cursor-pointer"><i class="fa-brands fa-instagram fa-lg"></i></span>
+                        <span class="text-gray-500 hover:text-vitamix-dark cursor-pointer"><i class="fa-brands fa-facebook-f fa-lg"></i></span>
+                        <span class="text-gray-500 hover:text-vitamix-dark cursor-pointer"><i class="fa-brands fa-pinterest-p fa-lg"></i></span>
+                        <span class="text-gray-500 hover:text-vitamix-dark cursor-pointer"><i class="fa-brands fa-youtube fa-lg"></i></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+</body></html>
